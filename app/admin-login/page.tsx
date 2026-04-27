@@ -1,64 +1,33 @@
-"use client"
+// app/admin-login/page.tsx
+"use client";
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import { ADMIN_USERNAME, ADMIN_PASSWORD } from "@/lib/admin"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
-export default function AdminLogin() {
+export default function Login() {
+  const [form, setForm] = useState({ username: "", password: "" });
+  const router = useRouter();
 
-const [username,setUsername] = useState("")
-const [password,setPassword] = useState("")
-const router = useRouter()
+  const handleLogin = () => {
+    if (form.username === "admin" && form.password === "kslegal123") {
+      localStorage.setItem("isAdmin", "true");
+      router.push("/admin-dashboard");
+    } else {
+      alert("Invalid credentials");
+    }
+  };
 
-function login(e:any){
+  return (
+    <div>
+      <h1>Admin Login</h1>
 
-e.preventDefault()
+      <input placeholder="Username"
+        onChange={(e)=>setForm({...form, username:e.target.value})} />
 
-if(username===ADMIN_USERNAME && password===ADMIN_PASSWORD){
+      <input type="password" placeholder="Password"
+        onChange={(e)=>setForm({...form, password:e.target.value})} />
 
-localStorage.setItem("admin","true")
-
-router.push("/admin-dashboard")
-
-}else{
-
-alert("Invalid credentials")
-
-}
-
-}
-
-return(
-
-<div className="h-screen flex items-center justify-center">
-
-<form onSubmit={login} className="flex flex-col gap-4 w-80">
-
-<h1 className="text-2xl font-bold">
-Admin Login
-</h1>
-
-<input
-placeholder="Username"
-className="border p-2"
-onChange={(e)=>setUsername(e.target.value)}
-/>
-
-<input
-type="password"
-placeholder="Password"
-className="border p-2"
-onChange={(e)=>setPassword(e.target.value)}
-/>
-
-<button className="bg-black text-white p-2">
-Login
-</button>
-
-</form>
-
-</div>
-
-)
-
+      <button onClick={handleLogin}>Login</button>
+    </div>
+  );
 }

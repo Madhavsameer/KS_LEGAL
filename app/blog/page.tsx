@@ -1,66 +1,39 @@
-"use client"
+// app/blog/page.tsx
+"use client";
 
-import { useEffect,useState } from "react"
-import { db } from "@/lib/firebase"
-import { collection,getDocs } from "firebase/firestore"
-import Link from "next/link"
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { db } from "@/lib/firebase";
+import { collection, getDocs } from "firebase/firestore";
 
-export default function Blog(){
+export default function BlogPage() {
+  const [blogs, setBlogs] = useState<any[]>([]);
 
-const [blogs,setBlogs] = useState<any[]>([])
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      const snapshot = await getDocs(collection(db, "blogs"));
+      const data = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setBlogs(data);
+    };
 
-useEffect(()=>{
+    fetchBlogs();
+  }, []);
 
-async function fetchBlogs(){
+  return (
+    <div>
+      <h1>Blogs</h1>
 
-const query = await getDocs(collection(db,"blogs"))
+      {blogs.map(blog => (
+        <div key={blog.id}>
+          <h2>{blog.title}</h2>
+          <p>{blog.content.slice(0,100)}...</p>
 
-const data = query.docs.map(doc=>({
-id:doc.id,
-...doc.data()
-}))
-
-setBlogs(data)
-
-}
-
-fetchBlogs()
-
-},[])
-
-return(
-
-<div className="max-w-6xl mx-auto py-20">
-
-<h1 className="text-4xl font-bold">
-Legal Blog
-</h1>
-
-<div className="grid md:grid-cols-3 gap-8 mt-10">
-
-{blogs.map(blog=>(
-
-<Link
-key={blog.id}
-href={`/blog/${blog.slug}`}
-className="border p-6 rounded-lg">
-
-<h2 className="text-xl font-bold">
-{blog.title}
-</h2>
-
-<p className="mt-3 text-gray-600">
-{blog.metaDescription}
-</p>
-
-</Link>
-
-))}
-
-</div>
-
-</div>
-
-)
-
+          <Link href={`/blog/${blog.slug}`}>Read More</Link>
+        </div>
+      ))}
+    </div>
+  );
 }

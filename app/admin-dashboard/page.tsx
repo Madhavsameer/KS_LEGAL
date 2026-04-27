@@ -1,45 +1,26 @@
-"use client"
+// app/admin-dashboard/page.tsx
+"use client";
 
-import { useEffect } from "react"
-import { useRouter } from "next/navigation"
-import Link from "next/link"
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
-export default function Dashboard(){
+export default function Dashboard() {
+  const router = useRouter();
 
-const router = useRouter()
+  useEffect(() => {
+    const isAdmin = localStorage.getItem("isAdmin");
+    if (!isAdmin) {
+      router.push("/admin-login");
+    }
+  }, []);
 
-useEffect(()=>{
+  return (
+    <div>
+      <h1>Admin Dashboard</h1>
 
-const admin = localStorage.getItem("admin")
-
-if(!admin){
-router.push("/admin-login")
-}
-
-},[])
-
-return(
-
-<div className="p-10">
-
-<h1 className="text-3xl font-bold">
-Admin Dashboard
-</h1>
-
-<div className="flex flex-col gap-4 mt-8">
-
-<Link href="/admin/add-blog">
-Add Blog
-</Link>
-
-<Link href="/admin/manage-blogs">
-Manage Blogs
-</Link>
-
-</div>
-
-</div>
-
-)
-
+      <button onClick={() => router.push("/admin-dashboard/blogs")}>
+        Manage Blogs
+      </button>
+    </div>
+  );
 }
