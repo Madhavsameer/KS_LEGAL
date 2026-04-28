@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 
 export default function EditBlog({ params }: any) {
   // ✅ Next.js 16 fix
-  const { id } = use(params);
+ const { id } = use(params) as { id: string };
 
   const router = useRouter();
 
