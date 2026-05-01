@@ -9,7 +9,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="h-35 bg-[#020617]/90 backdrop-blur-md text-white px-6 md:px-10 flex justify-between items-center fixed w-full z-50 border-b border-white/10">
+    <nav className="h-35 bg-[#020617]/90 backdrop-blur-md text-white px-6 md:px-10 flex justify-between items-center w-full z-50 border-b border-white/10">
 
       {/* Logo */}
       <Link href="/" className="flex items-center gap-3">

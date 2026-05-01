@@ -198,7 +198,7 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen bg-neutral-950 text-white">
-      <section className="relative isolate overflow-hidden border-b border-white/10 pt-24">
+      <section className="relative isolate overflow-hidden border-b border-white/10 ">
         <div className="absolute inset-0">
           <AnimatePresence mode="wait">
             <motion.img
