@@ -9,23 +9,17 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="h-35 bg-[#020617]/90 backdrop-blur-md text-white px-6 md:px-10 flex justify-between items-center w-full z-50 border-b border-white/10">
+    <nav className="h-30 bg-[#020617]/90 backdrop-blur-md text-white px-6 md:px-10 flex justify-between items-center fixed top-0 left-0 w-full z-50 border-b border-white/10">
 
       {/* Logo */}
       <Link href="/" className="flex items-center gap-3">
-        
-        {/* Blue Background Wrapper */}
-        <div className="p-2 rounded-lg shadow-md">
-          <Image
+        <Image
           src={logo}
           alt="KS Legal Logo"
-          width={156}
-          height={156}
+          width={160}
+          height={180}
           className="object-contain"
-/>
-        </div>
-
-        
+        />
       </Link>
 
       {/* Desktop Menu */}
@@ -39,12 +33,7 @@ export default function Navbar() {
       </div>
 
       {/* CTA */}
-      <Link
-        href="/consultation"
-        className="hidden md:block bg-yellow-500 text-black px-5 py-2.5 rounded-md text-sm font-medium hover:bg-yellow-400 transition"
-      >
-        Consultation
-      </Link>
+      
 
       {/* Mobile Menu Button */}
       <button
@@ -56,7 +45,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="absolute top-20 left-0 w-full bg-[#020617] border-t border-white/10 flex flex-col items-center py-6 gap-5 md:hidden text-base">
+        <div className="absolute top-full left-0 w-full bg-[#020617] border-t border-white/10 flex flex-col items-center py-6 gap-5 md:hidden text-base">
 
           <Link href="/" onClick={() => setOpen(false)}>Home</Link>
           <Link href="/about" onClick={() => setOpen(false)}>About</Link>
@@ -65,13 +54,7 @@ export default function Navbar() {
           <Link href="/blog" onClick={() => setOpen(false)}>Blog</Link>
           <Link href="/contact" onClick={() => setOpen(false)}>Contact</Link>
 
-          <Link
-            href="/consultation"
-            onClick={() => setOpen(false)}
-            className="bg-yellow-500 text-black px-6 py-2.5 rounded-md font-medium"
-          >
-            Book Consultation
-          </Link>
+          
 
         </div>
       )}
