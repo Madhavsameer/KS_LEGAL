@@ -1,4 +1,6 @@
 "use client";
+import Navbar from "@/components/Navbar"
+import Footer from "@/components/Footer"
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -40,8 +42,10 @@ export default function BlogPage() {
   }, []);
 
   return (
+    <>
+    <Navbar/>
     <div className="min-h-screen bg-gradient-to-b from-[#0f172a] via-[#020617] to-black text-white px-6 py-10">
-
+      
       {/* Hero */}
       <div className="max-w-6xl mx-auto mb-12 text-center">
         <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
@@ -146,6 +150,10 @@ export default function BlogPage() {
         ))}
 
       </div>
+      <Footer/>
     </div>
+    </>
+    
+    
   );
 }
