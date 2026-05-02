@@ -1,13 +1,11 @@
 "use client";
-import Navbar from "@/components/Navbar"
-import Footer from "@/components/Footer"
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { db } from "@/lib/firebase";
 import { collection, getDocs } from "firebase/firestore";
 
-/* ✅ Blog Type */
+/* Blog Type */
 type Blog = {
   id: string;
   title: string;
@@ -42,10 +40,8 @@ export default function BlogPage() {
   }, []);
 
   return (
-    <>
-    <Navbar/>
     <div className="min-h-screen bg-gradient-to-b from-[#0f172a] via-[#020617] to-black text-white px-6 py-10">
-      
+
       {/* Hero */}
       <div className="max-w-6xl mx-auto mb-12 text-center">
         <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
@@ -69,18 +65,18 @@ export default function BlogPage() {
       )}
 
       {/* Grid */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
 
         {blogs.map((blog) => (
           <Link
             key={blog.id}
             href={`/blog/${blog.slug}`}
-            className="block group"
+            className="block group h-full"
           >
             <div
               className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden 
               hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 
-              hover:scale-[1.02] flex flex-col cursor-pointer"
+              hover:scale-[1.02] flex flex-col h-full"
             >
               {/* Image */}
               {blog.image && (
@@ -101,13 +97,13 @@ export default function BlogPage() {
                   </span>
                 )}
 
-                {/* Title */}
-                <h2 className="text-xl font-semibold mb-2 line-clamp-2 group-hover:text-blue-400 transition">
+                {/* Title (fixed height) */}
+                <h2 className="text-xl font-semibold mb-2 line-clamp-2 min-h-[3rem] group-hover:text-blue-400 transition">
                   {blog.title}
                 </h2>
 
-                {/* Excerpt */}
-                <p className="text-gray-400 text-sm line-clamp-3">
+                {/* Excerpt (fixed height) */}
+                <p className="text-gray-400 text-sm line-clamp-3 min-h-[4.5rem]">
                   {blog.excerpt || blog.content?.slice(0, 120)}
                 </p>
 
@@ -125,14 +121,13 @@ export default function BlogPage() {
                   </div>
                 )}
 
-                {/* Footer */}
+                {/* Footer (always bottom aligned) */}
                 <div className="flex justify-between items-center mt-auto pt-4">
 
                   <span className="text-xs text-gray-500">
                     {blog.readTime || "5 min read"}
                   </span>
 
-                  {/* CTA Button */}
                   <div
                     className="px-4 py-2 rounded-xl text-sm font-medium flex items-center gap-1
                     bg-gradient-to-r from-blue-500 to-purple-600
@@ -150,10 +145,6 @@ export default function BlogPage() {
         ))}
 
       </div>
-      <Footer/>
     </div>
-    </>
-    
-    
   );
 }

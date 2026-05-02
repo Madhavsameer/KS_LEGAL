@@ -1,23 +1,125 @@
+"use client";
+
+import Link from "next/link";
+import { FaInstagram, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+
 export default function Footer() {
   return (
-    <footer className="bg-black text-white text-center py-10 mt-20">
+    <footer className="bg-[#020617] text-gray-300 border-t border-white/10 mt-20">
 
-      <h2 className="text-xl text-yellow-500 font-bold">
-        KS Legal & Associates
-      </h2>
+      {/* Main Section */}
+      <div className="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-10">
 
-      <p className="mt-2">
-        Advocates & Legal Consultants
-      </p>
+        {/* LEFT - Brand */}
+        <div>
+          <h2 className="text-2xl font-semibold text-yellow-500">
+            KS Legal & Associates
+          </h2>
 
-      <p className="mt-2">
-        Patna, Bihar
-      </p>
+          <p className="mt-4 text-sm text-gray-400 leading-relaxed">
+            Advocates & Legal Consultants providing professional and
+            result-driven legal services across multiple domains.
+          </p>
 
-      <p className="mt-2">
-        © {new Date().getFullYear()} KS Legal & Associates
-      </p>
+          <p className="mt-4 text-sm text-gray-500">
+            Patna, Bihar
+          </p>
+        </div>
+
+        {/* MIDDLE - Quick Links */}
+        <div>
+          <h3 className="text-white font-medium mb-4">
+            Quick Links
+          </h3>
+
+          <ul className="space-y-2 text-sm">
+            <li>
+              <Link href="/" className="hover:text-yellow-400 transition">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link href="/about" className="hover:text-yellow-400 transition">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link href="/practice-areas" className="hover:text-yellow-400 transition">
+                Practice Areas
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog" className="hover:text-yellow-400 transition">
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="hover:text-yellow-400 transition">
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* RIGHT - Contact + Social */}
+        <div>
+          <h3 className="text-white font-medium mb-4">
+            Contact
+          </h3>
+
+          <p className="text-sm text-gray-400">
+            Email: info@kslegal.com
+          </p>
+
+          <p className="text-sm text-gray-400 mt-2">
+            Phone: +91 XXXXX XXXXX
+          </p>
+
+          {/* Social Icons */}
+          <div className="flex gap-4 mt-5">
+
+            <a
+              href="#"
+              target="_blank"
+              className="p-2 rounded-md border border-white/10 hover:border-yellow-500/50 hover:text-yellow-400 hover:scale-110 transition"
+            >
+              <FaInstagram size={18} />
+            </a>
+
+            <a
+              href="#"
+              target="_blank"
+              className="p-2 rounded-md border border-white/10 hover:border-yellow-500/50 hover:text-yellow-400 hover:scale-110 transition"
+            >
+              <FaXTwitter size={18} />
+            </a>
+
+            <a
+              href="#"
+              target="_blank"
+              className="p-2 rounded-md border border-white/10 hover:border-yellow-500/50 hover:text-yellow-400 hover:scale-110 transition"
+            >
+              <FaLinkedin size={18} />
+            </a>
+
+          </div>
+
+          {/* CTA */}
+          <Link
+            href="/consultation"
+            className="inline-block mt-6 bg-yellow-500 text-black px-5 py-2 rounded-md text-sm font-medium hover:bg-yellow-400 transition"
+          >
+            Book Consultation
+          </Link>
+        </div>
+
+      </div>
+
+      {/* Bottom */}
+      <div className="border-t border-white/10 text-center py-5 text-xs text-gray-500">
+        © {new Date().getFullYear()} KS Legal & Associates. All rights reserved.
+      </div>
 
     </footer>
-  )
+  );
 }

@@ -69,7 +69,7 @@ export default function Attorneys() {
 
       </section>
 
-      <Footer />
+      
     </>
   )
 }

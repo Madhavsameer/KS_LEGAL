@@ -30,15 +30,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#020617] text-white`}
       >
-        {/* ✅ Global Navbar */}
         <Navbar />
 
-        {/* ✅ Main Content (fix for navbar overlap) */}
-        <main className="pt-24 min-h-screen">
+        {/* ✅ FIXED */}
+        <main className="pt-24 min-h-[calc(100vh-6rem)]">
           {children}
         </main>
 
-        {/* ✅ Footer */}
         <Footer />
       </body>
     </html>

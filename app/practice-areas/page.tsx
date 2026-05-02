@@ -37,7 +37,7 @@ export default function PracticeAreas() {
 
       </section>
 
-      <Footer />
+      
     </>
   )
 }
