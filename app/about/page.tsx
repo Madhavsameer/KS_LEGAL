@@ -1,57 +1,74 @@
+import Image from "next/image";
+import keshav from "@/lib/Keshav_Profile3.png";
 export default function About() {
+  const stats = [
+    { value: "10+", label: "Years Experience" },
+    { value: "500+", label: "Cases Handled" },
+    { value: "95%", label: "Success Rate" },
+    { value: "24/7", label: "Client Support" },
+  ];
+
   const highlights = [
     {
       title: "Strategic Legal Thinking",
-      desc: "We combine deep legal knowledge with practical case strategy to help clients make informed decisions at every stage.",
+      desc: "We approach every matter with preparation, legal depth, and a practical strategy tailored to the client’s goals.",
     },
     {
-      title: "Client-First Communication",
-      desc: "We believe legal representation should be clear, responsive, and transparent from consultation to resolution.",
+      title: "Transparent Guidance",
+      desc: "Clients receive clear advice, honest communication, and regular updates throughout the legal process.",
     },
     {
-      title: "Strong Courtroom Presence",
-      desc: "From criminal defense to civil disputes and corporate legal matters, we represent clients with precision and confidence.",
+      title: "Focused Representation",
+      desc: "From criminal and civil disputes to corporate legal matters, we represent every case with discipline and precision.",
     },
   ];
 
   const values = [
     {
       title: "Integrity",
-      desc: "Every case is handled with honesty, discretion, and the highest professional standards.",
+      desc: "We uphold the highest ethical standards in every legal matter we undertake.",
     },
     {
       title: "Expertise",
-      desc: "Our legal approach is grounded in research, preparation, and experience across multiple practice areas.",
+      desc: "Our work is driven by research, preparation, and practical courtroom understanding.",
     },
     {
       title: "Commitment",
-      desc: "We work with focus and persistence to secure the best possible outcome for every client.",
+      desc: "We stay fully dedicated to protecting our clients’ interests and pursuing strong outcomes.",
     },
     {
       title: "Confidentiality",
-      desc: "We understand the sensitivity of legal issues and safeguard every matter with complete professionalism.",
+      desc: "Sensitive matters are handled with professionalism, respect, and complete discretion.",
     },
   ];
 
   const process = [
-    "Initial consultation to understand your matter and legal position.",
-    "Case review and legal strategy tailored to your goals.",
-    "Documentation, representation, and continuous case updates.",
-    "Strong advocacy focused on resolution, protection, and results.",
+    "Initial consultation to understand your concerns, facts, and legal position.",
+    "Detailed case assessment and a strategy designed around your objectives.",
+    "Documentation, representation, and regular communication at each stage.",
+    "Strong legal advocacy aimed at resolution, protection, and long-term confidence.",
+  ];
+
+  const practiceAreas = [
+    "Criminal Defense & Litigation",
+    "Civil Disputes & Representation",
+    "Corporate Legal Advisory",
+    "Legal Documentation & Drafting",
+    "Consultation & Case Strategy",
   ];
 
   return (
     <div className="min-h-screen bg-slate-950 text-white overflow-hidden">
-      {/* Ambient background */}
+      {/* Background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-yellow-500/10 blur-3xl" />
-        <div className="absolute top-40 right-0 h-[280px] w-[280px] rounded-full bg-amber-400/5 blur-3xl" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.05),transparent_35%)]" />
+        <div className="absolute left-1/2 top-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-yellow-500/10 blur-3xl" />
+        <div className="absolute right-0 top-40 h-[300px] w-[300px] rounded-full bg-amber-400/5 blur-3xl" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.06),transparent_35%)]" />
       </div>
 
       {/* HERO */}
-      <section className="relative max-w-7xl mx-auto px-6 pt-24 pb-16 md:pt-32 md:pb-24">
-        <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-10 items-center">
+      <section className="max-w-7xl mx-auto px-6 pt-24 pb-16 md:pt-32 md:pb-24">
+        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 items-center">
           <div>
             <span className="inline-flex items-center rounded-full border border-yellow-500/20 bg-yellow-500/10 px-4 py-1 text-sm text-yellow-400">
               About KS Legal & Associates
@@ -64,10 +81,10 @@ export default function About() {
             </h1>
 
             <p className="mt-6 max-w-2xl text-base md:text-lg text-slate-300 leading-8">
-              KS Legal & Associates is a Patna-based law firm offering focused
-              legal services in criminal, civil, and corporate matters. We are
-              committed to providing reliable counsel, sharp legal strategy, and
-              strong representation tailored to each client’s situation.
+              KS Legal & Associates is a Patna-based law firm delivering
+              professional legal services in criminal, civil, and corporate
+              matters. We combine legal expertise, disciplined preparation, and
+              responsive support to help clients move forward with confidence.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
@@ -89,20 +106,15 @@ export default function About() {
           <div className="relative">
             <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl shadow-2xl shadow-black/30">
               <div className="grid grid-cols-2 gap-4">
-                {[
-                  ["10+", "Years Experience"],
-                  ["500+", "Cases Handled"],
-                  ["95%", "Success Rate"],
-                  ["24/7", "Client Support"],
-                ].map(([value, label]) => (
+                {stats.map((item) => (
                   <div
-                    key={label}
+                    key={item.label}
                     className="rounded-2xl border border-white/10 bg-slate-900/70 p-5"
                   >
                     <p className="text-3xl font-semibold text-yellow-500">
-                      {value}
+                      {item.value}
                     </p>
-                    <p className="mt-2 text-sm text-slate-400">{label}</p>
+                    <p className="mt-2 text-sm text-slate-400">{item.label}</p>
                   </div>
                 ))}
               </div>
@@ -112,8 +124,8 @@ export default function About() {
                   Trusted Legal Counsel
                 </p>
                 <p className="mt-3 text-slate-200 leading-7">
-                  Professional guidance backed by legal discipline, courtroom
-                  readiness, and a client-centered approach.
+                  Professional legal guidance backed by preparation, precision,
+                  and a client-first approach.
                 </p>
               </div>
             </div>
@@ -121,7 +133,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* FIRM OVERVIEW */}
+      {/* OVERVIEW */}
       <section className="max-w-7xl mx-auto px-6 py-8 md:py-16">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="rounded-3xl border border-white/10 bg-white/5 p-8 md:p-10 backdrop-blur-md">
@@ -135,44 +147,43 @@ export default function About() {
 
           <div className="space-y-5 text-slate-300 leading-8">
             <p>
-              At KS Legal & Associates, we understand that every legal matter
-              carries real personal, financial, or business consequences. Our
-              role is not only to represent clients, but to guide them with
-              clarity, preparation, and confidence.
+              At KS Legal & Associates, we understand that legal issues often
+              involve serious personal, financial, and business consequences. We
+              work to deliver not only strong representation, but also clarity
+              and confidence throughout the process.
             </p>
             <p>
-              Whether the issue involves criminal litigation, civil disputes, or
-              corporate legal support, we focus on practical solutions,
-              meticulous case handling, and communication clients can trust.
+              Our firm is built on the belief that effective legal support
+              should be strategic, transparent, and responsive. Every matter is
+              approached with preparation, professionalism, and a commitment to
+              achieving the best possible outcome for our clients.
             </p>
           </div>
         </div>
       </section>
 
-      {/* WHY CHOOSE US */}
+      {/* HIGHLIGHTS */}
       <section className="max-w-7xl mx-auto px-6 py-16 md:py-24">
-        <div className="flex items-end justify-between gap-6 flex-wrap">
-          <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-yellow-400">
-              Why Clients Choose Us
-            </p>
-            <h2 className="mt-3 text-2xl md:text-4xl font-semibold">
-              Legal service with clarity and conviction
-            </h2>
-          </div>
+        <div>
+          <p className="text-sm uppercase tracking-[0.2em] text-yellow-400">
+            Why Clients Choose Us
+          </p>
+          <h2 className="mt-3 text-2xl md:text-4xl font-semibold">
+            Legal service with clarity and conviction
+          </h2>
         </div>
 
         <div className="mt-10 grid md:grid-cols-3 gap-6">
           {highlights.map((item) => (
             <div
               key={item.title}
-              className="group rounded-3xl border border-white/10 bg-gradient-to-b from-white/8 to-white/4 p-6 transition hover:-translate-y-1 hover:border-yellow-500/20 hover:bg-white/10"
+              className="group rounded-3xl border border-white/10 bg-gradient-to-b from-white/8 to-white/4 p-6 transition duration-300 hover:-translate-y-1 hover:border-yellow-500/20 hover:bg-white/10"
             >
-              <div className="h-12 w-12 rounded-2xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-400">
+              <div className="h-12 w-12 rounded-2xl border border-yellow-500/20 bg-yellow-500/10 flex items-center justify-center text-yellow-400">
                 <span className="text-lg">✦</span>
               </div>
               <h3 className="mt-5 text-xl font-semibold">{item.title}</h3>
-              <p className="mt-3 text-slate-400 leading-7 text-sm">
+              <p className="mt-3 text-sm leading-7 text-slate-400">
                 {item.desc}
               </p>
             </div>
@@ -180,7 +191,67 @@ export default function About() {
         </div>
       </section>
 
-      {/* PRACTICE + MESSAGE */}
+      {/* FOUNDER */}
+      <section className="max-w-7xl mx-auto px-6 py-16 md:py-24 border-t border-white/10">
+        <div className="grid lg:grid-cols-[0.42fr_0.58fr] gap-12 items-center">
+          <div className="relative">
+            <div className="">
+               <Image
+    src={keshav}
+    alt="Keshav Sameer, Founder of KS Legal & Associates"
+    className="w-full h-full"
+  />
+            </div>
+
+            {/* <div className="absolute -bottom-5 -right-5 rounded-2xl border border-yellow-500/20 bg-slate-900/95 px-5 py-4 backdrop-blur-xl">
+              <p className="text-lg font-semibold text-yellow-400">Founder</p>
+              <p className="text-sm text-slate-300">Keshav Sameer</p>
+            </div> */}
+          </div>
+
+          <div>
+            <p className="text-sm uppercase tracking-[0.2em] text-yellow-400">
+              Founder's Message
+            </p>
+            <h2 className="mt-3 text-3xl md:text-5xl font-semibold leading-tight">
+              Leadership rooted in integrity and legal discipline
+            </h2>
+
+            <p className="mt-6 text-slate-300 leading-8">
+              Keshav Sameer founded KS Legal & Associates with a clear vision:
+              to build a law firm that combines strong legal capability with
+              honest client guidance. His approach is grounded in preparation,
+              precision, and a deep sense of professional responsibility.
+            </p>
+
+            <p className="mt-4 text-slate-400 leading-8">
+              He believes that effective legal service is not only about
+              arguments in court, but also about understanding the client’s
+              concerns, communicating clearly, and pursuing every matter with
+              commitment and strategic focus. Under his leadership, the firm
+              continues to provide dependable representation across criminal,
+              civil, and corporate matters.
+            </p>
+
+            <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6">
+              <p className="text-lg italic leading-8 text-slate-200">
+                “Our responsibility is to stand beside every client with clarity,
+                preparation, and confidence—because strong legal support begins
+                with trust.”
+              </p>
+
+              <div className="mt-6 border-l-2 border-yellow-500 pl-4">
+                <p className="font-semibold text-white">Keshav Sameer</p>
+                <p className="text-sm text-slate-400">
+                  Founder & Lead Advocate, KS Legal & Associates
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PRACTICE + PERSPECTIVE */}
       <section className="max-w-7xl mx-auto px-6 py-16 border-t border-white/10">
         <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-stretch">
           <div className="rounded-3xl border border-white/10 bg-slate-900/70 p-8">
@@ -188,13 +259,7 @@ export default function About() {
               Practice Focus
             </p>
             <ul className="mt-6 space-y-4 text-slate-300">
-              {[
-                "Criminal Defense & Litigation",
-                "Civil Disputes & Representation",
-                "Corporate Legal Advisory",
-                "Documentation & Legal Drafting",
-                "Client Consultation & Strategy",
-              ].map((item) => (
+              {practiceAreas.map((item) => (
                 <li
                   key={item}
                   className="flex items-center gap-3 border-b border-white/5 pb-4"
@@ -215,10 +280,10 @@ export default function About() {
               preparing thoroughly, and acting with confidence.”
             </blockquote>
             <p className="mt-6 text-slate-400 leading-8">
-              We believe clients deserve legal counsel that is both professional
-              and approachable. Our goal is to simplify the legal process,
-              protect our clients’ interests, and pursue outcomes with care and
-              persistence.
+              We believe every client deserves professional support that is both
+              disciplined and approachable. Our goal is to simplify the legal
+              process, protect our clients’ interests, and pursue outcomes with
+              focus and responsibility.
             </p>
           </div>
         </div>
@@ -231,24 +296,24 @@ export default function About() {
             How We Work
           </p>
           <h2 className="mt-3 text-2xl md:text-4xl font-semibold">
-            A structured process from consultation to resolution
+            A structured legal process from consultation to resolution
           </h2>
         </div>
 
         <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {process.map((step, i) => (
+          {process.map((step, index) => (
             <div
-              key={i}
-              className="rounded-3xl border border-white/10 bg-white/5 p-6 relative overflow-hidden"
+              key={index}
+              className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6"
             >
-              <div className="text-5xl font-semibold text-white/10 absolute top-4 right-5">
-                0{i + 1}
+              <div className="absolute right-5 top-4 text-5xl font-semibold text-white/10">
+                0{index + 1}
               </div>
               <div className="relative">
-                <div className="mb-4 h-10 w-10 rounded-full bg-yellow-500 text-black flex items-center justify-center font-semibold">
-                  {i + 1}
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-yellow-500 font-semibold text-black">
+                  {index + 1}
                 </div>
-                <p className="text-slate-300 leading-7 text-sm">{step}</p>
+                <p className="text-sm leading-7 text-slate-300">{step}</p>
               </div>
             </div>
           ))}
@@ -270,7 +335,7 @@ export default function About() {
           {values.map((value) => (
             <div
               key={value.title}
-              className="rounded-2xl border border-white/10 bg-slate-900/60 p-6 hover:border-yellow-500/20 transition"
+              className="rounded-2xl border border-white/10 bg-slate-900/60 p-6 transition hover:border-yellow-500/20"
             >
               <h3 className="text-lg font-semibold">{value.title}</h3>
               <p className="mt-3 text-sm leading-7 text-slate-400">
@@ -288,7 +353,7 @@ export default function About() {
             Need Legal Assistance?
           </p>
           <h2 className="mt-4 text-3xl md:text-5xl font-semibold leading-tight">
-            Discuss your legal matter with confidence.
+            Discuss your legal matter with confidence
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-slate-300 leading-8">
             Connect with KS Legal & Associates for professional legal guidance,

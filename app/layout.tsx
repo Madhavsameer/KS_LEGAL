@@ -28,12 +28,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#020617] text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#020617] text-white flex flex-col min-h-screen`}
       >
         <Navbar />
 
-        {/* ✅ FIXED */}
-        <main className="pt-24 min-h-[calc(100vh-6rem)]">
+        {/* ✅ IMPORTANT FIX */}
+        <main className="pt-24 flex-1">
           {children}
         </main>
 

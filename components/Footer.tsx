@@ -5,12 +5,12 @@ import { FaInstagram, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#020617] text-gray-300 border-t border-white/10 mt-20">
+    <footer className="bg-[#020617] text-gray-300 border-t border-white/10">
 
       {/* Main Section */}
       <div className="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-10">
 
-        {/* LEFT - Brand */}
+        {/* LEFT */}
         <div>
           <h2 className="text-2xl font-semibold text-yellow-500">
             KS Legal & Associates
@@ -26,42 +26,22 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* MIDDLE - Quick Links */}
+        {/* MIDDLE */}
         <div>
           <h3 className="text-white font-medium mb-4">
             Quick Links
           </h3>
 
           <ul className="space-y-2 text-sm">
-            <li>
-              <Link href="/" className="hover:text-yellow-400 transition">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="hover:text-yellow-400 transition">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/practice-areas" className="hover:text-yellow-400 transition">
-                Practice Areas
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog" className="hover:text-yellow-400 transition">
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:text-yellow-400 transition">
-                Contact
-              </Link>
-            </li>
+            <li><Link href="/" className="hover:text-yellow-400">Home</Link></li>
+            <li><Link href="/about" className="hover:text-yellow-400">About</Link></li>
+            <li><Link href="/practice-areas" className="hover:text-yellow-400">Practice Areas</Link></li>
+            <li><Link href="/blog" className="hover:text-yellow-400">Blog</Link></li>
+            <li><Link href="/contact" className="hover:text-yellow-400">Contact</Link></li>
           </ul>
         </div>
 
-        {/* RIGHT - Contact + Social */}
+        {/* RIGHT */}
         <div>
           <h3 className="text-white font-medium mb-4">
             Contact
@@ -78,27 +58,15 @@ export default function Footer() {
           {/* Social Icons */}
           <div className="flex gap-4 mt-5">
 
-            <a
-              href="#"
-              target="_blank"
-              className="p-2 rounded-md border border-white/10 hover:border-yellow-500/50 hover:text-yellow-400 hover:scale-110 transition"
-            >
+            <a className="p-2 border border-white/10 rounded-md hover:text-yellow-400 hover:scale-110 transition">
               <FaInstagram size={18} />
             </a>
 
-            <a
-              href="#"
-              target="_blank"
-              className="p-2 rounded-md border border-white/10 hover:border-yellow-500/50 hover:text-yellow-400 hover:scale-110 transition"
-            >
+            <a className="p-2 border border-white/10 rounded-md hover:text-yellow-400 hover:scale-110 transition">
               <FaXTwitter size={18} />
             </a>
 
-            <a
-              href="#"
-              target="_blank"
-              className="p-2 rounded-md border border-white/10 hover:border-yellow-500/50 hover:text-yellow-400 hover:scale-110 transition"
-            >
+            <a className="p-2 border border-white/10 rounded-md hover:text-yellow-400 hover:scale-110 transition">
               <FaLinkedin size={18} />
             </a>
 
@@ -107,7 +75,7 @@ export default function Footer() {
           {/* CTA */}
           <Link
             href="/consultation"
-            className="inline-block mt-6 bg-yellow-500 text-black px-5 py-2 rounded-md text-sm font-medium hover:bg-yellow-400 transition"
+            className="inline-block mt-6 bg-yellow-500 text-black px-5 py-2 rounded-md font-medium hover:bg-yellow-400 transition"
           >
             Book Consultation
           </Link>
@@ -117,7 +85,7 @@ export default function Footer() {
 
       {/* Bottom */}
       <div className="border-t border-white/10 text-center py-5 text-xs text-gray-500">
-        © {new Date().getFullYear()} KS Legal & Associates. All rights reserved.
+        © {new Date().getFullYear()} KS Legal & Associates
       </div>
 
     </footer>
