@@ -5,12 +5,13 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export default function PracticeAreas() {
-  const [flippedIndex, setFlippedIndex] = useState(null);
+  const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
 
   const areas = [
     {
       title: "Criminal Law",
-      image: "https://images.unsplash.com/photo-1605806616949-1e87b487fc2f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y3JpbWluYWx8ZW58MHx8MHx8fDA%3D",
+      image:
+        "https://images.unsplash.com/photo-1605806616949-1e87b487fc2f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y3JpbWluYWx8ZW58MHx8MHx8fDA%3D",
       short: "Defense, bail, trial support, and courtroom representation.",
       details:
         "We provide legal support in criminal matters including anticipatory bail, criminal defense strategy, hearings, and court representation with careful preparation.",
@@ -18,7 +19,8 @@ export default function PracticeAreas() {
     },
     {
       title: "Civil Litigation",
-      image: "https://plus.unsplash.com/premium_photo-1661329930662-19a43503782f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Y2l2aWwlMjBsYXd8ZW58MHx8MHx8fDA%3D",
+      image:
+        "https://plus.unsplash.com/premium_photo-1661329930662-19a43503782f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Y2l2aWwlMjBsYXd8ZW58MHx8MHx8fDA%3D",
       short: "Disputes, injunctions, recovery matters, and civil proceedings.",
       details:
         "Our firm handles civil disputes with a practical and detail-oriented approach, helping clients with filings, injunctions, recoveries, and court proceedings.",
@@ -26,7 +28,8 @@ export default function PracticeAreas() {
     },
     {
       title: "Property Disputes",
-      image: "https://tse1.mm.bing.net/th/id/OIP.gEp_1lSJbK_nT7otP19P6AHaE8?cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3",
+      image:
+        "https://tse1.mm.bing.net/th/id/OIP.gEp_1lSJbK_nT7otP19P6AHaE8?cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3",
       short: "Title issues, partition matters, possession, and documentation.",
       details:
         "We advise and represent clients in property and land-related disputes, including title conflicts, partition matters, possession issues, and legal documentation.",
@@ -34,7 +37,8 @@ export default function PracticeAreas() {
     },
     {
       title: "Family & Divorce Law",
-      image: "https://thfvnext.bing.com/th/id/OIP.moGP6rEQjTZAv4RYe3SSMwHaFj?w=225&h=180&c=7&r=0&o=7&cb=thfvnext&dpr=1.3&pid=1.7&rm=3",
+      image:
+        "https://thfvnext.bing.com/th/id/OIP.moGP6rEQjTZAv4RYe3SSMwHaFj?w=225&h=180&c=7&r=0&o=7&cb=thfvnext&dpr=1.3&pid=1.7&rm=3",
       short: "Confidential support in divorce, custody, and family matters.",
       details:
         "Family matters require both legal precision and sensitivity. We assist clients in divorce proceedings, child custody disputes, maintenance matters, and related issues.",
@@ -42,7 +46,8 @@ export default function PracticeAreas() {
     },
     {
       title: "Corporate Law",
-      image: "https://thfvnext.bing.com/th/id/OIP.Fd-XRf7jzhEMR_3zkjq6ngHaE8?w=235&h=180&c=7&r=0&o=7&cb=thfvnext&dpr=1.3&pid=1.7&rm=3",
+      image:
+        "https://thfvnext.bing.com/th/id/OIP.Fd-XRf7jzhEMR_3zkjq6ngHaE8?w=235&h=180&c=7&r=0&o=7&cb=thfvnext&dpr=1.3&pid=1.7&rm=3",
       short: "Business advisory, agreements, compliance, and legal support.",
       details:
         "We support businesses with contracts, advisory services, documentation, and compliance matters through a commercially practical legal approach.",
@@ -50,7 +55,8 @@ export default function PracticeAreas() {
     },
     {
       title: "Legal Consultation",
-      image: "https://thfvnext.bing.com/th/id/OIP.5tGrNUOjf38zec_-6HpvogHaE8?w=243&h=180&c=7&r=0&o=7&cb=thfvnext&dpr=1.3&pid=1.7&rm=3",
+      image:
+        "https://thfvnext.bing.com/th/id/OIP.5tGrNUOjf38zec_-6HpvogHaE8?w=243&h=180&c=7&r=0&o=7&cb=thfvnext&dpr=1.3&pid=1.7&rm=3",
       short: "Clear guidance before taking action in a legal matter.",
       details:
         "We offer focused consultations for individuals and businesses seeking legal clarity, preliminary case assessment, and strategic direction before moving ahead.",
@@ -81,7 +87,7 @@ export default function PracticeAreas() {
     },
   ];
 
-  const handleFlip = (index) => {
+  const handleFlip = (index: number) => {
     setFlippedIndex((prev) => (prev === index ? null : index));
   };
 
@@ -149,9 +155,7 @@ export default function PracticeAreas() {
                           Practice Area
                         </span>
                         <h2 className="mt-4 text-2xl font-semibold">{area.title}</h2>
-                        <p className="mt-3 text-sm leading-7 text-slate-300">
-                          {area.short}
-                        </p>
+                        <p className="mt-3 text-sm leading-7 text-slate-300">{area.short}</p>
                         <p className="mt-5 text-xs uppercase tracking-[0.25em] text-slate-400">
                           Hover or tap to flip
                         </p>
@@ -171,9 +175,7 @@ export default function PracticeAreas() {
                           What we handle
                         </h3>
 
-                        <p className="mt-4 text-sm leading-7 text-slate-300">
-                          {area.details}
-                        </p>
+                        <p className="mt-4 text-sm leading-7 text-slate-300">{area.details}</p>
                       </div>
 
                       <ul className="mt-6 space-y-3">
@@ -274,9 +276,7 @@ export default function PracticeAreas() {
                     Step {item.step}
                   </div>
                   <h3 className="text-xl font-semibold">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-400">
-                    {item.text}
-                  </p>
+                  <p className="mt-3 text-sm leading-7 text-slate-400">{item.text}</p>
                 </div>
               </div>
             ))}
@@ -315,8 +315,6 @@ export default function PracticeAreas() {
         </section>
       </main>
 
-     
-
       <style jsx>{`
         .flip-card {
           perspective: 1200px;
@@ -353,7 +351,7 @@ export default function PracticeAreas() {
           transform: rotateY(180deg);
         }
 
-        @media (max-width: 768px) {
+       @media (max-width: 768px) {
           .flip-card:hover .flip-card-inner {
             transform: none;
           }
