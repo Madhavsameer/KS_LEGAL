@@ -58,20 +58,34 @@ export default function Footer() {
           {/* Social Icons */}
           <div className="flex gap-4 mt-5">
 
-            <a className="p-2 border border-white/10 rounded-md hover:text-yellow-400 hover:scale-110 transition">
-              <FaInstagram size={18} />
-            </a>
+  <a 
+    href="https://instagram.com/kslegalpatna" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="p-2 border border-white/10 rounded-md hover:text-yellow-400 hover:scale-110 transition"
+  >
+    <FaInstagram size={18} />
+  </a>
 
-            <a className="p-2 border border-white/10 rounded-md hover:text-yellow-400 hover:scale-110 transition">
-              <FaXTwitter size={18} />
-            </a>
+  <a 
+    href="https://twitter.com/keshavsameer" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="p-2 border border-white/10 rounded-md hover:text-yellow-400 hover:scale-110 transition"
+  >
+    <FaXTwitter size={18} />
+  </a>
 
-            <a className="p-2 border border-white/10 rounded-md hover:text-yellow-400 hover:scale-110 transition">
-              <FaLinkedin size={18} />
-            </a>
+  <a 
+    href="https://linkedin.com/in/keshavsameer" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="p-2 border border-white/10 rounded-md hover:text-yellow-400 hover:scale-110 transition"
+  >
+    <FaLinkedin size={18} />
+  </a>
 
-          </div>
-
+</div>
           {/* CTA */}
           <Link
             href="/consultation"
