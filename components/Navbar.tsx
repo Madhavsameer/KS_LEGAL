@@ -11,15 +11,21 @@ export default function Navbar() {
   return (
     <nav className="h-30 bg-[#020617]/90 backdrop-blur-md text-white px-6 md:px-10 flex justify-between items-center fixed top-0 left-0 w-full z-50 border-b border-white/10">
 
-      {/* Logo */}
-      <Link href="/" className="flex items-center gap-3">
+      {/* Logo + Name */}
+      <Link href="/" className="flex items-center gap-3 group">
         <Image
           src={logo}
           alt="KS Legal Logo"
           width={160}
-          height={180}
+          height={160}
           className="object-contain"
         />
+
+        <div className="leading-tight">
+          <h1 className="text-lg md:text-xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent group-hover:opacity-80 transition">
+            KS Legal & Associates
+          </h1>
+        </div>
       </Link>
 
       {/* Desktop Menu */}
@@ -31,9 +37,6 @@ export default function Navbar() {
         <Link href="/blog" className="hover:text-yellow-400 transition">Blog</Link>
         <Link href="/contact" className="hover:text-yellow-400 transition">Contact</Link>
       </div>
-
-      {/* CTA */}
-      
 
       {/* Mobile Menu Button */}
       <button
@@ -53,8 +56,6 @@ export default function Navbar() {
           <Link href="/attorneys" onClick={() => setOpen(false)}>Attorneys</Link>
           <Link href="/blog" onClick={() => setOpen(false)}>Blog</Link>
           <Link href="/contact" onClick={() => setOpen(false)}>Contact</Link>
-
-          
 
         </div>
       )}

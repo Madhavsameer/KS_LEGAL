@@ -48,11 +48,11 @@ export default function Footer() {
           </h3>
 
           <p className="text-sm text-gray-400">
-            Email: info@kslegal.com
+            Email: kslegalpatna@gmail.com
           </p>
 
           <p className="text-sm text-gray-400 mt-2">
-            Phone: +91 XXXXX XXXXX
+            Phone: +91 9470088499
           </p>
 
           {/* Social Icons */}

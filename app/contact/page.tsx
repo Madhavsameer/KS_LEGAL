@@ -8,13 +8,13 @@ const contactDetails = [
   },
   {
     title: "Phone",
-    value: "+91 XXXXX XXXXX",
-    href: "tel:+91XXXXXXXXXX",
+    value: "+91 9470088499",
+    href: "tel:+919470088499",
   },
   {
     title: "Email",
-    value: "contact@kslegal.in",
-    href: "mailto:contact@kslegal.in",
+    value: "kslegalpatna@gmail.com",
+    href: "mailto:kslegalpatna@gmail.com",
   },
   {
     title: "Working Hours",

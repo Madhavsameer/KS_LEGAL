@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import FloatingButtons from "../components/FloatingButton";
 
+import FloatingButtons from "../components/FloatingButton";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import LoaderWrapper from "@/components/LoaderWrapper"; // ✅ add this
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,15 +32,18 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#020617] text-white flex flex-col min-h-screen`}
       >
-        <Navbar />
+        <LoaderWrapper> {/* ✅ wrap everything */}
 
-        {/* ✅ IMPORTANT FIX */}
-        <main className="pt-24 flex-1">
-          {children}
-        </main>
+          <Navbar />
 
-        <Footer />
-        <FloatingButtons/>
+          <main className="pt-24 flex-1">
+            {children}
+          </main>
+
+          <Footer />
+          <FloatingButtons />
+
+        </LoaderWrapper>
       </body>
     </html>
   );
