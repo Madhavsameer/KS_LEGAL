@@ -1,12 +1,6 @@
-"use client";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-// import FloatingButtons from "../components/FloatingButton";
-// import Navbar from "@/components/Navbar";
-// import Footer from "@/components/Footer";
-// import LoaderWrapper from "@/components/LoaderWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,25 +27,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} overflow-hidden bg-black text-white antialiased`}
       >
-        {/*
-        ======================================
-        ORIGINAL WEBSITE LAYOUT (DISABLED)
-        ======================================
-
-        <LoaderWrapper>
-
-          <Navbar />
-
-          <main className="pt-24 flex-1">
-            {children}
-          </main>
-
-          <Footer />
-          <FloatingButtons />
-
-        </LoaderWrapper>
-        */}
-
         <main className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-10">
 
           {/* Background */}
@@ -147,25 +122,6 @@ export default function RootLayout({
             </div>
           </div>
         </main>
-
-        {/* Global Animation */}
-        <style jsx global>{`
-          @keyframes fadeIn {
-            from {
-              opacity: 0;
-              transform: translateY(30px) scale(0.98);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0px) scale(1);
-            }
-          }
-
-          .animate-fadeIn {
-            animation: fadeIn 1.2s ease;
-          }
-        `}</style>
-
       </body>
     </html>
   );
