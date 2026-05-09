@@ -25,9 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} overflow-hidden bg-black text-white antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-black text-white antialiased`}
       >
-        <main className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-10">
+        <main className="relative flex min-h-screen items-center justify-center px-4 py-10 overflow-y-auto">
 
           {/* Background */}
           <div className="absolute inset-0 bg-black" />
@@ -41,7 +41,7 @@ export default function RootLayout({
           <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:60px_60px]" />
 
           {/* Main Card */}
-          <div className="relative z-10 w-full max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_0_120px_rgba(255,255,255,0.05)] animate-fadeIn">
+          <div className="relative z-10 w-full max-w-5xl rounded-3xl border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_0_120px_rgba(255,255,255,0.05)] animate-fadeIn">
 
             {/* Top Border */}
             <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-red-500 to-transparent animate-pulse" />
