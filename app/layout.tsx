@@ -1,9 +1,6 @@
-"use client";
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { useEffect, useRef } from "react";
 
 // import FloatingButtons from "../components/FloatingButton";
 // import Navbar from "@/components/Navbar";
@@ -30,30 +27,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  useEffect(() => {
-    const playAudio = async () => {
-      try {
-        if (audioRef.current) {
-          audioRef.current.volume = 0.4;
-          await audioRef.current.play();
-        }
-      } catch (err) {
-        console.log("Autoplay blocked until user interaction.");
-      }
-    };
-
-    playAudio();
-  }, []);
-
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-black text-white overflow-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} overflow-hidden bg-black text-white antialiased`}
       >
-
         {/*
         ======================================
         ORIGINAL WEBSITE LAYOUT (DISABLED)
@@ -73,50 +51,42 @@ export default function RootLayout({
         </LoaderWrapper>
         */}
 
-        {/* Audio */}
-        <audio ref={audioRef} loop>
-          <source src="/dark-ambient.mp3" type="audio/mpeg" />
-        </audio>
-
         <main className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-10">
 
-          {/* Animated Background */}
+          {/* Background */}
           <div className="absolute inset-0 bg-black" />
 
+          {/* Animated Glow */}
           <div className="absolute top-[-100px] left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-red-500/10 blur-3xl animate-pulse" />
 
           <div className="absolute bottom-[-150px] right-[-100px] h-[400px] w-[400px] rounded-full bg-white/5 blur-3xl animate-pulse" />
 
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_35%)]" />
-
-          {/* Floating Grid */}
+          {/* Grid */}
           <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:60px_60px]" />
 
           {/* Main Card */}
-          <div className="relative z-10 w-full max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_0_120px_rgba(255,255,255,0.05)] animate-[fadeIn_1.2s_ease]">
+          <div className="relative z-10 w-full max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_0_120px_rgba(255,255,255,0.05)] animate-fadeIn">
 
-            {/* Top Glow Border */}
+            {/* Top Border */}
             <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-red-500 to-transparent animate-pulse" />
 
             <div className="p-6 md:p-14">
 
               {/* Badge */}
-              <div className="mb-6 inline-flex items-center rounded-full border border-red-500/20 bg-red-500/10 px-4 py-2 text-xs md:text-sm uppercase tracking-[0.3em] text-red-300 backdrop-blur-xl">
+              <div className="mb-6 inline-flex items-center rounded-full border border-red-500/20 bg-red-500/10 px-4 py-2 text-xs md:text-sm uppercase tracking-[0.3em] text-red-300">
                 Developer Notice
               </div>
 
               {/* Heading */}
-              <h1 className="text-4xl md:text-7xl font-black tracking-tight leading-tight">
+              <h1 className="text-4xl md:text-7xl font-black leading-tight tracking-tight">
                 503 — Service Suspended
               </h1>
 
-              {/* Animated Divider */}
-              <div className="my-8 h-px w-full overflow-hidden bg-white/10">
-                <div className="h-full w-[40%] animate-[slide_4s_linear_infinite] bg-gradient-to-r from-transparent via-red-400 to-transparent" />
-              </div>
+              {/* Divider */}
+              <div className="my-8 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
               {/* Content */}
-              <div className="space-y-6 text-gray-300 text-base md:text-xl leading-8 md:leading-10">
+              <div className="space-y-6 text-base leading-8 text-gray-300 md:text-xl md:leading-10">
 
                 <p>
                   This website has been placed offline after the continuous
@@ -148,23 +118,23 @@ export default function RootLayout({
 
                 <div className="absolute inset-0 bg-gradient-to-r from-red-500/5 via-transparent to-white/5" />
 
-                <p className="relative z-10 text-lg md:text-3xl italic leading-10 md:leading-[60px] text-white/90 font-light">
+                <p className="relative z-10 text-lg italic leading-10 text-white/90 md:text-3xl md:leading-[60px]">
                   “Website ko chalane ke liye server chahiye hota hai.
                   <br />
                   Relationship ko chalane ke liye Mutual-Understanding,
                   Wafadari, aur Izzat.”
                 </p>
 
-                <p className="relative z-10 mt-6 text-right text-sm md:text-lg text-gray-400">
+                <p className="relative z-10 mt-6 text-right text-sm text-gray-400 md:text-lg">
                   — Good Luck ☺️
                 </p>
 
               </div>
 
               {/* Footer */}
-              <div className="mt-10 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm md:flex-row md:items-center md:justify-between text-gray-500">
+              <div className="mt-10 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-gray-500 md:flex-row md:items-center md:justify-between">
 
-                <span className="tracking-[0.2em] uppercase">
+                <span className="uppercase tracking-[0.2em]">
                   KS Legal & Associates
                 </span>
 
@@ -173,22 +143,12 @@ export default function RootLayout({
                 </span>
 
               </div>
-
             </div>
           </div>
         </main>
 
-        {/* Animations */}
+        {/* Global Animation */}
         <style jsx global>{`
-          @keyframes slide {
-            0% {
-              transform: translateX(-120%);
-            }
-            100% {
-              transform: translateX(350%);
-            }
-          }
-
           @keyframes fadeIn {
             from {
               opacity: 0;
@@ -198,6 +158,10 @@ export default function RootLayout({
               opacity: 1;
               transform: translateY(0px) scale(1);
             }
+          }
+
+          .animate-fadeIn {
+            animation: fadeIn 1.2s ease;
           }
         `}</style>
 
