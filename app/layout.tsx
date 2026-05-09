@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Service Suspended",
-  description: "Website temporarily unavailable",
+  title: "503 — Developer Notice",
+  description: "Service Suspended",
 };
 
 export default function RootLayout({
@@ -30,12 +30,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen overflow-hidden bg-black text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white overflow-hidden`}
       >
         {/*
-        ===========================
-        OLD WEBSITE LAYOUT DISABLED
-        ===========================
+        ======================================
+        ORIGINAL WEBSITE LAYOUT (DISABLED)
+        ======================================
 
         <LoaderWrapper>
 
@@ -51,44 +51,72 @@ export default function RootLayout({
         </LoaderWrapper>
         */}
 
-        <main className="relative flex min-h-screen items-center justify-center px-6">
+        <main className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-10">
 
-          {/* Background Glow */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_40%)]" />
-          <div className="absolute top-0 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-white/5 blur-3xl" />
+          {/* Background Effects */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_35%)]" />
+          <div className="absolute top-[-120px] left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-white/5 blur-3xl" />
+          <div className="absolute bottom-[-200px] right-[-100px] h-[400px] w-[400px] rounded-full bg-red-500/10 blur-3xl" />
 
-          {/* Glass Card */}
-          <div className="relative z-10 w-full max-w-3xl rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-xl shadow-[0_0_80px_rgba(255,255,255,0.06)]">
+          {/* Main Card */}
+          <div className="relative z-10 w-full max-w-4xl rounded-3xl border border-white/10 bg-white/5 p-8 md:p-14 backdrop-blur-2xl shadow-[0_0_80px_rgba(255,255,255,0.05)]">
 
-            {/* Status */}
-            <div className="mb-6 inline-flex items-center rounded-full border border-red-500/30 bg-red-500/10 px-4 py-2 text-sm tracking-[0.2em] text-red-300 uppercase">
-              Service Suspended
+            {/* Status Badge */}
+            <div className="mb-6 inline-flex items-center rounded-full border border-red-500/30 bg-red-500/10 px-4 py-2 text-xs md:text-sm uppercase tracking-[0.3em] text-red-300">
+              Developer Notice
             </div>
 
             {/* Heading */}
             <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight">
-              503 — Collaboration Terminated
+              503 — Service Suspended
             </h1>
 
             {/* Divider */}
             <div className="my-8 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
-            {/* Message */}
-            <p className="text-lg md:text-xl leading-9 text-gray-300">
-              This website is currently unavailable due to the termination
-              of developer support and unresolved disputes with the client.
-            </p>
+            {/* Content */}
+            <div className="space-y-6 text-gray-300 text-base md:text-lg leading-8">
 
-            {/* Quote */}
-            <p className="mt-8 italic text-gray-500">
-              “Some systems fail because of technical issues.
-              Others because of human ones.”
-            </p>
+              <p>
+                This website has been placed offline after the continuous
+                breakdown of communication and professional respect between
+                the client and the developer.
+              </p>
+
+              <p>
+                The project was handled with commitment, late nights,
+                problem-solving, and patience. Unfortunately, not every client
+                understands the value of the person working behind the screen.
+              </p>
+
+              <p>
+                Technical systems can survive pressure.
+                <br />
+                Professional relationships sometimes cannot.
+              </p>
+
+              <p>
+                Until further notice, all maintenance, deployment, and support
+                services remain suspended.
+              </p>
+            </div>
+
+            {/* Quote Section */}
+            <div className="mt-12 rounded-2xl border border-white/10 bg-black/30 p-6">
+              <p className="text-lg md:text-2xl italic leading-10 text-white/90">
+                “Website ko chalane ke liye server chahiye hota hai.
+                <br />
+                Relationship ko chalane ke liye Mutual-Understanding, Wafadari, aur Izzat🙌👍.”
+                 <br />
+                Good Luck☺️
+                
+              </p>
+            </div>
 
             {/* Footer */}
-            <div className="mt-12 flex items-center justify-between border-t border-white/10 pt-6 text-sm text-gray-500">
+            <div className="mt-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-gray-500">
               <span>KS Legal & Associates</span>
-              <span>Developer Access Revoked</span>
+              <span>Developer Support Withdrawn</span>
             </div>
           </div>
         </main>
