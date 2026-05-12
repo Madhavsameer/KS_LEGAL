@@ -8,8 +8,12 @@ export default function Dashboard() {
   const [authorized, setAuthorized] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const isAdmin = localStorage.getItem("isAdmin");
+  
+useEffect(() => {
+    // ✅ FIX: cookie instead of localStorage
+    const isAdmin = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("isAdmin="));
 
     if (!isAdmin) {
       router.push("/admin-login");
@@ -18,10 +22,11 @@ export default function Dashboard() {
     }
 
     setLoading(false);
-  }, []);
+  }, [router]);
 
   const handleLogout = () => {
-    localStorage.removeItem("isAdmin");
+    // ✅ FIX: clear cookie
+    document.cookie = "isAdmin=; Path=/; Max-Age=0";
     router.push("/admin-login");
   };
 
@@ -34,6 +39,7 @@ export default function Dashboard() {
   }
 
   if (!authorized) return null;
+
 
   return (
     <div className="flex h-screen bg-gray-100">
