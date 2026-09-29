@@ -29,13 +29,21 @@ export default function Navbar() {
       </Link>
 
       {/* Desktop Menu */}
-      <div className="hidden md:flex gap-8 text-sm md:text-base">
+      <div className="hidden md:flex gap-8 text-sm md:text-base items-center">
         <Link href="/" className="hover:text-yellow-400 transition">Home</Link>
         <Link href="/about" className="hover:text-yellow-400 transition">About</Link>
         <Link href="/practice-areas" className="hover:text-yellow-400 transition">Practice Areas</Link>
         <Link href="/attorneys" className="hover:text-yellow-400 transition">Attorneys</Link>
         <Link href="/blog" className="hover:text-yellow-400 transition">Blog</Link>
         <Link href="/contact" className="hover:text-yellow-400 transition">Contact</Link>
+
+        {/* Login links */}
+        <Link href="/user-login" className="ml-4 px-4 py-2 rounded-lg bg-yellow-500 text-black font-semibold hover:brightness-95 transition">
+          Login
+        </Link>
+        <Link href="/admin-login" className="ml-2 px-3 py-2 rounded-lg border border-white/10 text-sm hover:text-yellow-400 transition">
+          Admin
+        </Link>
       </div>
 
       {/* Mobile Menu Button */}
@@ -56,6 +64,15 @@ export default function Navbar() {
           <Link href="/attorneys" onClick={() => setOpen(false)}>Attorneys</Link>
           <Link href="/blog" onClick={() => setOpen(false)}>Blog</Link>
           <Link href="/contact" onClick={() => setOpen(false)}>Contact</Link>
+
+          <div className="pt-4 flex gap-3">
+            <Link href="/user-login" onClick={() => setOpen(false)} className="px-4 py-2 rounded-lg bg-yellow-500 text-black font-semibold">
+              Login
+            </Link>
+            <Link href="/admin-login" onClick={() => setOpen(false)} className="px-3 py-2 rounded-lg border border-white/10">
+              Admin
+            </Link>
+          </div>
 
         </div>
       )}
