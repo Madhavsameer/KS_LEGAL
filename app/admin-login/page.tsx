@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { ADMIN_PASSWORD, ADMIN_USERNAME } from "@/lib/admin";
 
 export default function Login() {
   const [form, setForm] = useState({ username: "", password: "" });
@@ -17,11 +18,11 @@ export default function Login() {
     setLoading(true);
 
     setTimeout(() => {
-      if (form.username === "admin" && form.password === "kslegal123") {
-        // ✅ FIX: cookie used everywhere
-        document.cookie =
-          "isAdmin=true; Path=/; Max-Age=86400; SameSite=Lax";
-
+      if (
+        form.username === ADMIN_USERNAME &&
+        form.password === ADMIN_PASSWORD
+      ) {
+        document.cookie = "isAdmin=true; Path=/; Max-Age=86400; SameSite=Lax";
         router.push("/admin-dashboard");
       } else {
         alert("Invalid credentials");
@@ -32,7 +33,6 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex">
-      {/* ✅ YOUR UI — UNCHANGED */}
       <div className="hidden md:flex w-1/2 bg-black text-white flex-col justify-between p-12">
         <div>
           <h1 className="text-4xl font-bold tracking-tight">KS Legal</h1>
@@ -68,6 +68,7 @@ export default function Login() {
             type="text"
             placeholder="Username"
             className="w-full px-4 py-3 mb-4 rounded-lg border"
+            value={form.username}
             onChange={(e) =>
               setForm({ ...form, username: e.target.value })
             }
@@ -77,6 +78,7 @@ export default function Login() {
             type="password"
             placeholder="Password"
             className="w-full px-4 py-3 mb-6 rounded-lg border"
+            value={form.password}
             onChange={(e) =>
               setForm({ ...form, password: e.target.value })
             }
