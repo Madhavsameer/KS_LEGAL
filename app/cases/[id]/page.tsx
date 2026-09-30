@@ -35,7 +35,8 @@ export default function CaseDetailPage({ params }: any) {
         return;
       }
 
-      const data = { id: snap.id, ...snap.data() };
+      // cast snap.data() to any so TypeScript knows additional fields exist
+      const data = { id: snap.id, ...(snap.data() as any) };
       setCaseData(data);
 
       if (data.lawyerId) {
