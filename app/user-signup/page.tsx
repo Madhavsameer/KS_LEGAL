@@ -21,13 +21,12 @@ export default function UserSignup() {
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!form.name || !form.phone || !form.password) {
-      alert("Name, phone and password are required");
+    if (!form.name || !form.phone || !form.email || !form.password) {
+      alert("Name, phone, email and password are required");
       return;
     }
 
     const phone = normalizePhone(form.phone);
-
     if (!phone) {
       alert("Enter a valid mobile number");
       return;
@@ -36,18 +35,18 @@ export default function UserSignup() {
     setLoading(true);
 
     try {
-      const mappedEmail = `${phone}@kslegal.app`;
-      await createUserWithEmailAndPassword(auth, mappedEmail, form.password);
+      await createUserWithEmailAndPassword(auth, form.email, form.password);
 
-      await setDoc(doc(db, "users", phone), {
+      const userId = form.email;
+      await setDoc(doc(db, "users", userId), {
         name: form.name,
-        phone: phone,
-        email: form.email || "",
+        phone,
+        email: form.email,
         role: "user",
         createdAt: new Date(),
       });
 
-      alert("Account created successfully. Please login.");
+      alert("Account created successfully. Please sign in using your email link.");
       router.push("/user-login");
     } catch (err: any) {
       console.error("Signup error", err);
@@ -78,7 +77,7 @@ export default function UserSignup() {
 
         <input
           type="email"
-          placeholder="Email (optional)"
+          placeholder="Email address"
           value={form.email}
           onChange={(e) => setForm({ ...form, email: e.target.value })}
           className="w-full p-3 mb-3 rounded bg-white/5 border border-white/10 outline-none"
